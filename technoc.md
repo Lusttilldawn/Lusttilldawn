@@ -158,3 +158,82 @@ if __name__ == "__main__":
 ]
 
     main()
+# file: bondage_education_app.py
+
+import json
+
+class BondageTechnique:
+    def __init__(self, name, difficulty, description, steps, safety_notes):
+        self.name = name
+        self.difficulty = difficulty
+        self.description = description
+        self.steps = steps
+        self.safety_notes = safety_notes
+
+    def display_full(self):
+        print(f"\n=== {self.name.upper()} ===")
+        print(f"Difficulty: {self.difficulty}")
+        print(f"Description: {self.description}\n")
+        print("Steps:")
+        for i, step in enumerate(self.steps, 1):
+            print(f"  {i}. {step}")
+        print("\nSafety Notes:")
+        for note in self.safety_notes:
+            print(f"  - {note}")
+        print("=" * 40)
+
+
+def load_techniques_from_json(filepath="techniques.json"):
+    with open(filepath, "r", encoding="utf-8") as file:
+        data = json.load(file)
+    return [BondageTechnique(**tech) for tech in data]
+
+
+def show_menu():
+    print("\nBondage Tactics Educational App")
+    print("1. View all techniques")
+    print("2. View safety overview")
+    print("3. Exit")
+
+
+def safety_overview():
+    print("\n=== SAFETY FIRST ===")
+    print("1. Always obtain informed, enthusiastic consent.")
+    print("2. Use safety scissors in case of emergency.")
+    print("3. Avoid tying over joints or compressing nerves.")
+    print("4. Communicate constantly with your partner.")
+    print("5. Educate yourself thoroughly before practicing.")
+    print("=" * 40)
+
+
+def main():
+    try:
+        techniques = load_techniques_from_json()
+    except Exception as e:
+        print(f"Error loading techniques: {e}")
+        return
+
+    while True:
+        show_menu()
+        choice = input("\nEnter your choice: ").strip()
+
+        if choice == "1":
+            print("\nAvailable Techniques:")
+            for idx, tech in enumerate(techniques, 1):
+                print(f"{idx}. {tech.name}")
+            sel = input("Choose a technique number to view details: ").strip()
+            if sel.isdigit() and 1 <= int(sel) <= len(techniques):
+                techniques[int(sel) - 1].display_full()
+            else:
+                print("Invalid selection.")
+        elif choice == "2":
+            safety_overview()
+        elif choice == "3":
+            print("Goodbye. Practice responsibly.")
+            break
+        else:
+            print("Invalid input. Try again.")
+
+
+if __name__ == "__main__":
+    main()
