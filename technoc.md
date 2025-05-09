@@ -122,4 +122,39 @@ def main():
 
 
 if __name__ == "__main__":
+[
+  {
+    "name": "Single Column Tie",
+    "difficulty": "Beginner",
+    "description": "Used to tie a single limb or anchor rope to an object. It's foundational and used in many forms.",
+    "steps": [
+      "Form a bight and place it over the wrist or object.",
+      "Wrap the working end twice around the column.",
+      "Thread the tail through the bight and cinch.",
+      "Finish with a square knot or backup knot."
+    ],
+    "safety_notes": [
+      "Check for proper circulation regularly.",
+      "Avoid tying too tightly or over joints.",
+      "Ensure you have safety scissors nearby."
+    ]
+  },
+  {
+    "name": "Double Column Tie",
+    "difficulty": "Intermediate",
+    "description": "Used to bind two limbs together, e.g., wrists or ankles. Great for immobilization while keeping comfort.",
+    "steps": [
+      "Hold wrists/ankles together with slight gap.",
+      "Wrap rope 2–3 times around both limbs.",
+      "Pull through and cinch between the limbs.",
+      "Tie off using secure knots away from pressure points."
+    ],
+    "safety_notes": [
+      "Avoid excessive tension between limbs.",
+      "Ensure balance in body position.",
+      "Test for numbness or tingling every few minutes."
+    ]
+  }
+]
+
     main()
